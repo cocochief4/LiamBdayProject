@@ -5,7 +5,7 @@
 Adafruit_7segment matrix = Adafruit_7segment();
 
 #define buttonA 13
-#define buttonALight 12
+#define buttonALight 6
 #define buttonB 11
 #define buttonBLight 10
 #define buzz 9
