@@ -4,7 +4,7 @@
 
 Adafruit_7segment matrix = Adafruit_7segment();
 
-#define buttonA 13
+#define buttonA 7
 #define buttonALight 6
 #define buttonB 11
 #define buttonBLight 10
@@ -58,7 +58,7 @@ void checkButton() {
   }
   
   int bVal = digitalRead(buttonB);
-    Serial.println(bVal);
+    //Serial.println(bVal);
   if (bVal == LOW && buttonClickedB == false && millis() - timeBlue > 300) {
     digitalWrite(buttonBLight, HIGH);
     countBlue = countBlue + 1;
