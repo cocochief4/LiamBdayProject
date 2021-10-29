@@ -58,7 +58,7 @@ void checkButton() {
   }
   
   int bVal = digitalRead(buttonB);
-    //Serial.println(bVal);
+    Serial.println(bVal);
   if (bVal == LOW && buttonClickedB == false && millis() - timeBlue > 300) {
     digitalWrite(buttonBLight, HIGH);
     countBlue = countBlue + 1;
