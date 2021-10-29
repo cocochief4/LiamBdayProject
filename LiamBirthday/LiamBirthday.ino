@@ -29,7 +29,6 @@ void setup()  {
   Serial.begin(9600);
   Serial.println("Serial On");
   #ifndef __AVR_ATtiny85__
-  //delete afterwards
   #endif
   matrix.begin(0x70);
 }
