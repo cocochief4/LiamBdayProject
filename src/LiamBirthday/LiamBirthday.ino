@@ -1,7 +1,9 @@
+//Add required Libraries
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include "Adafruit_LEDBackpack.h"
 
+//Rendering Matrix Display
 Adafruit_7segment matrix = Adafruit_7segment();
 
 #define buttonA 7
@@ -18,6 +20,7 @@ int timeRed = 0;
 int timeBlue = 0;
 
 void setup()  {
+  //Initialize pins and serial communication.
   pinMode(buzz, OUTPUT);
   digitalWrite(buzz, LOW);
   pinMode(buttonA, INPUT_PULLUP);
@@ -30,9 +33,10 @@ void setup()  {
   Serial.println("Serial On");
   #ifndef __AVR_ATtiny85__
   #endif
-  matrix.begin(0x70);
+  matrix.begin(0x70); //Sets the clock rate (bits per sec)
 }
 
+//Loop to check if one of the teams has won.
 void loop() {
   if (countRed < 99 && countBlue < 99) {
     checkButton();
@@ -43,6 +47,8 @@ void loop() {
   }
 }
 
+//Checks if the buttons for the teams has been presed, if they have, add a point to the respective team and start a timer that counts until they can press the button again.
+// This makes sure the games to not end really quickly. Sometimes, the delay does not work.
 void checkButton() {
   int aVal = digitalRead(buttonA);
     Serial.println(aVal);
@@ -71,6 +77,7 @@ void checkButton() {
   }
 }
 
+//Shows the score using Adafruit 7-segment display backpack library. Here is the link for more information: https://learn.adafruit.com/adafruit-led-backpack/0-dot-56-seven-segment-backpack-arduino-setup
 void showScore(int countBlue, int countRed) {
   bool drawDots = false;
   bool drawColon = true;
